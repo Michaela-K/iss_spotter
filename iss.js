@@ -16,6 +16,7 @@ const fetchMyIP = function (callback) {
     if (error) {
       return callback(error, null);
     }
+    //It should be the first set of checks before we try to parse the body.
     if (response.statusCode !== 200) {
       const msg = `Status Code ${response.statusCode} when fetching IP. Response: ${body}`;
       return callback(Error(msg), null); //creates a new Error object that we can pass around
